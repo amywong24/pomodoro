@@ -1,0 +1,89 @@
+.pomodoro {
+  text-align: center;
+}
+
+.pomodoro-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.button-container {
+  display: flex;
+}
+
+.start-button, .stop-button {
+  width: 150px;
+  height: 50px;
+  font-size: 35px;
+  background: rgb(96,133,240);
+  background: linear-gradient(90deg, rgba(96,133,240,1) 0%, rgba(120,116,242,1) 35%, rgba(59,203,174,1) 100%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: relative;
+}
+
+.start-button:before, .start-button:after, .stop-button:before, .stop-button:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: #7874f2;
+  transition: all 0.3s ease;
+}
+.start-button:before, .stop-button:before {
+  height: 0%;
+  width: 2px;
+}
+.start-button:after, .stop-button:after {
+  width: 0%;
+  height: 2px;
+}
+.start-button:hover, .stop-button:hover{
+  background: transparent;
+  box-shadow: none;
+}
+.start-button:hover:before, .stop-button:hover:before {
+  height: 100%;
+}
+.start-button:hover:after, .stop-button:hover:after {
+  width: 100%;
+}
+.start-button span:hover, .stop-button span:hover{
+   color: #7874f2;
+}
+.start-button span:before, .start-button span:after,
+.stop-button span:before, .stop-button span:after{
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: #7874f2;
+  transition: all 0.3s ease;
+}
+.start-button span:before, .stop-button span:before {
+  width: 2px;
+  height: 0%;
+}
+.start-button span:after, .stop-button span:after {
+  width: 0%;
+  height: 2px;
+}
+.start-button span:hover:before, .stop-button span:hover:before {
+  height: 100%;
+}
+.start-button span:hover:after, .stop-button span:hover:after{
+  width: 100%;
+}
+
+.start-button-container, .stop-button-container {
+  position: relative;
+  margin-right: 20px;
+}
