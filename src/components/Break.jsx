@@ -20,7 +20,7 @@ const Break = () => {
     };
 
     return (
-        <div>
+        <div className="break-container">
             <p id="break-label">Break</p>
             <p id="break-length">{breakLength}</p>
             <button id="break-decrease" onClick={decrementBreakLengthByMinute}><span>-</span></button>

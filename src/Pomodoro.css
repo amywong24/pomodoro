@@ -22,14 +22,14 @@
   position: relative;
 }
 
-#start-button:before,
-#start-button:after,
-#stop-button:before,
-#stop-button:after,
-#break-increase:before,
-#break-increase:after,
-#break-decrease:before,
-#break-decrease:after {
+#start-button::before,
+#start-button::after,
+#stop-button::before,
+#stop-button::after,
+#break-increase::before,
+#break-increase::after,
+#break-decrease::before,
+#break-decrease::after {
   position: absolute;
   content: "";
   right: 0;
@@ -38,18 +38,18 @@
   transition: all 0.5s ease;
 }
 
-#start-button:before,
-#stop-button:before,
-#break-increase:before,
-#break-decrease:before {
+#start-button::before,
+#stop-button::before,
+#break-increase::before,
+#break-decrease::before {
   height: 0%;
   width: 2px;
 }
 
-#start-button:after,
-#stop-button:after,
-#break-increase:after,
-#break-decrease:after {
+#start-button::after,
+#stop-button::after,
+#break-increase::after,
+#break-decrease::after {
   width: 0%;
   height: 2px;
 }
@@ -63,13 +63,17 @@
   cursor: pointer;
 }
 
-#start-button:hover:before,
-#stop-button:hover:before {
+#start-button:hover::before,
+#stop-button:hover::before,
+#break-increase:hover::before,
+#break-decrease:hover::before {
   height: 100%;
 }
 
-#start-button:hover:after,
-#stop-button:hover:after {
+#start-button:hover::after,
+#stop-button:hover::after,
+#break-increase:hover::after,
+#break-decrease:hover::after {
   width: 100%;
 }
 
@@ -87,10 +91,14 @@
   color: #7874f2;
 }
 
-#start-button span:before,
-#start-button span:after,
-#stop-button span:before,
-#stop-button span:after {
+#start-button span::before,
+#start-button span::after,
+#stop-button span::before,
+#stop-button span::after,
+#break-decrease span::before,
+#break-decrease span::after,
+#break-increase span::before,
+#break-increase span::after {
   position: absolute;
   content: "";
   left: 0;
@@ -99,30 +107,39 @@
   transition: all 0.5s ease;
 }
 
-#start-button span:before,
-#stop-button span:before {
+#start-button span::before,
+#stop-button span::before,
+#break-increase span::before,
+#break-decrease span::before {
   width: 2px;
   height: 0%;
 }
 
-#start-button span:after,
-#stop-button span:after {
+#start-button span::after,
+#stop-button span::after,
+#break-increase span::after,
+#break-decrease span::after {
   width: 0%;
   height: 2px;
 }
 
-#start-button span:hover:before,
-#stop-button span:hover:before {
+#start-button span:hover::before,
+#stop-button span:hover::before,
+#break-decrease span:hover::before,
+#break-increase span:hover::before {
   height: 100%;
 }
 
-#start-button span:hover:after,
-#stop-button span:hover:after {
+#start-button span:hover::after,
+#stop-button span:hover::after,
+#break-decrease span:hover::after,
+#break-increase span:hover::after {
   width: 100%;
 }
 
 .start-button-container,
-.stop-button-container {
+.stop-button-container,
+.break-container {
   position: relative;
   margin-right: 20px;
 }
