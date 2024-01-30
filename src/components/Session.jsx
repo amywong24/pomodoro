@@ -1,25 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import moment from 'moment';
 
-const Session = () => {
-    const [sessionLength, setSessionLength] = useState(60*25);
-
-    const decrementSessionLengthByMinute = () => {
-        const newSessionLength = sessionLength - 60;
-
-        if (newSessionLength < 0) {
-            setSessionLength(0);
-        }
-
-        else {
-            setSessionLength(newSessionLength);
-        }
-    };
-
-    const incrementSessionLengthByMinute = () => {
-        setSessionLength(sessionLength + 60);
-    };
-
+const Session = ({ sessionLength, incrementSessionLengthByMinute, decrementSessionLengthByMinute }) => {
     const sessionLengthinMins = moment.duration(sessionLength, 's').minutes();
 
     return (
@@ -30,6 +12,7 @@ const Session = () => {
             <button id="session-increase" onClick={incrementSessionLengthByMinute}><span>+</span></button>
         </div>
     );
+
 };
 
 export default Session;
