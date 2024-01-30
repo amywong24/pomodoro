@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import moment from 'moment';
 
 const Break = () => {
     const [breakLength, setBreakLength] = useState(300);
@@ -19,10 +20,12 @@ const Break = () => {
         setBreakLength(breakLength + 60);
     };
 
+    const breakLengthinMins = moment.duration(breakLength, 's').minutes();
+
     return (
         <div className="break-container">
             <p id="break-label">Break</p>
-            <p id="break-length">{breakLength}</p>
+            <p id="break-length">{breakLengthinMins}</p>
             <button id="break-decrease" onClick={decrementBreakLengthByMinute}><span>-</span></button>
             <button id="break-increase" onClick={incrementBreakLengthByMinute}><span>+</span></button>
         </div>

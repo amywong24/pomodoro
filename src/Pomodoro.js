@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import Break from './components/Break';
+import Session from './components/Session';
 import './Pomodoro.css';
 
 function Pomodoro() {
   return (
     <div className="pomodoro">
       <Break />
+      <Session />
       <div className="button-container">
         <div className="start-button-container">
           <button id="start-button"><span>Start</span></button>
