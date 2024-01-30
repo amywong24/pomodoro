@@ -1,19 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import Break from './components/Break';
-import './Pomodoro.css';
+
+import StopStartButtons from './components/startButtons';
+import BreakButtons from './components/breakButtons';
 
 function Pomodoro() {
   return (
     <div className="pomodoro">
-      <Break />
-      <div className="button-container">
-        <div className="start-button-container">
-          <button id="start-button"><span>Start</span></button>
-        </div>
-        <div className="stop-button-container">
-          <button id="stop-button"><span>Stop</span></button>
-        </div>
+      <div className='container'>
+        <BreakButtons />
+        <StopStartButtons />
       </div>
     </div>
   );
