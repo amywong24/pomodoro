@@ -15,8 +15,8 @@
   width: 120px;
   height: 50px;
   font-size: 35px;
-  background: rgb(96, 133, 240);
-  background: linear-gradient(90deg, rgba(96, 133, 240, 1) 0%, rgba(120, 116, 242, 1) 35%, rgba(59, 203, 174, 1) 100%);
+  background: black;
+  color: white;
   line-height: 42px;
   padding: 0;
   border: none;
@@ -40,7 +40,7 @@
   content: "";
   right: 0;
   top: 0;
-  background: #7874f2;
+  background: black;
   transition: all 0.5s ease;
 }
 
@@ -111,7 +111,7 @@
 #break-decrease span:hover,
 #session-increase span:hover,
 #session-decrease span:hover {
-  color: #7874f2;
+  color: black;
 }
 
 #start-button span::before,
@@ -130,7 +130,7 @@
   content: "";
   left: 0;
   bottom: 0;
-  background: #7874f2;
+  background: black;
   transition: all 0.5s ease;
 }
 
