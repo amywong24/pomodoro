@@ -3,6 +3,7 @@ import Break from './components/Break';
 import Session from './components/Session';
 import TimeLeft from './components/TimeLeft';
 import './Pomodoro.css';
+import './buttons.css';
 
 function Pomodoro() {
   const [sessionLength, setSessionLength] = useState(60*25);
@@ -45,20 +46,13 @@ function Pomodoro() {
         breakLength = {breakLength}
         decrementBreakLengthByMinute = {decrementBreakLengthByMinute}
         incrementBreakLengthByMinute = {incrementBreakLengthByMinute}/>
-      <TimeLeft 
+      <TimeLeft
+        breakLength={breakLength}
         sessionLength = {sessionLength}/>
       <Session 
         sessionLength = {sessionLength}
         decrementSessionLengthByMinute = {decrementSessionLengthByMinute}
         incrementSessionLengthByMinute = {incrementSessionLengthByMinute}/>
-      <div className="button-container">
-        <div className="start-button-container">
-          <button id="start-button"><span>Start</span></button>
-        </div>
-        <div className="stop-button-container">
-          <button id="stop-button"><span>Stop</span></button>
-        </div>
-      </div>
     </div>
   );
 }

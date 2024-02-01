@@ -1,0 +1,155 @@
+#start-stop-button,
+#break-increase,
+#break-decrease,
+#session-decrease,
+#session-increase {
+  width: 120px;
+  height: 50px;
+  font-size: 35px;
+  background: black;
+  color: white;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: relative;
+}
+
+#start-stop-button::before,
+#start-stop-button::after,
+#break-increase::before,
+#break-increase::after,
+#break-decrease::before,
+#break-decrease::after,
+#session-increase::before,
+#session-increase::after,
+#session-decrease::before,
+#session-decrease::after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: black;
+  transition: all 0.5s ease;
+}
+
+#start-stop-button::before,
+#break-increase::before,
+#break-decrease::before,
+#session-increase::before,
+#session-decrease::before {
+  height: 0%;
+  width: 2px;
+}
+
+#start-stop-button::after,
+#break-increase::after,
+#break-decrease::after,
+#session-increase::after,
+#session-decrease::after {
+  width: 0%;
+  height: 2px;
+}
+
+#start-stop-button:hover,
+#break-increase:hover,
+#break-decrease:hover,
+#session-increase:hover,
+#session-decrease:hover {
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+#start-stop-button:hover::before,
+#break-increase:hover::before,
+#break-decrease:hover::before,
+#session-increase:hover::before,
+#session-decrease:hover::before {
+  height: 100%;
+}
+
+#start-stop-button:hover::after,
+#break-increase:hover::after,
+#break-decrease:hover::after,
+#session-increase:hover::after,
+#session-decrease:hover::after {
+  width: 100%;
+}
+
+#start-stop-button span,
+#break-increase span,
+#break-decrease span,
+#session-increase span,
+#session-decrease span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#start-stop-button span:hover,
+#break-increase span:hover,
+#break-decrease span:hover,
+#session-increase span:hover,
+#session-decrease span:hover {
+  color: black;
+}
+
+#start-stop-button span::before,
+#start-stop-button span::after,
+#break-decrease span::before,
+#break-decrease span::after,
+#break-increase span::before,
+#break-increase span::after,
+#session-increase span::before,
+#session-increase span::after,
+#session-decrease span::before,
+#session-decrease span::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: black;
+  transition: all 0.5s ease;
+}
+
+#start-stop-button span::before,
+#break-increase span::before,
+#break-decrease span::before,
+#session-increase span::before,
+#session-decrease span::before {
+  width: 2px;
+  height: 0%;
+}
+
+#start-stop-button span::after,
+#break-increase span::after,
+#break-decrease span::after,
+#session-increase span::after,
+#session-decrease span::after {
+  width: 0%;
+  height: 2px;
+}
+
+#start-stop-button span:hover::before,
+#break-decrease span:hover::before,
+#break-increase span:hover::before,
+#session-increase span:hover::before,
+#session-decrease span:hover::before {
+  height: 100%;
+}
+
+#start-stop-button span:hover::after,
+#break-decrease span:hover::after,
+#break-increase span:hover::after,
+#session-increase span:hover::after,
+#session-decrease span:hover::after {
+  width: 100%;
+}
+
+#break-increase,
+#break-decrease, #session-increase, #session-decrease {
+  width: 50px;
+  margin-right: 20px;
+}
