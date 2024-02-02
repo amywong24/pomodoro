@@ -2,12 +2,13 @@
 #break-increase,
 #break-decrease,
 #session-decrease,
-#session-increase {
+#session-increase,
+#reset-button {
   width: 120px;
   height: 50px;
   font-size: 35px;
-  background: black;
-  color: white;
+  background: #f08080;
+  color: black;
   line-height: 42px;
   padding: 0;
   border: none;
@@ -24,7 +25,9 @@
 #session-increase::before,
 #session-increase::after,
 #session-decrease::before,
-#session-decrease::after {
+#session-decrease::after,
+#reset-button::before,
+#reset-button::after {
   position: absolute;
   content: "";
   right: 0;
@@ -37,7 +40,8 @@
 #break-increase::before,
 #break-decrease::before,
 #session-increase::before,
-#session-decrease::before {
+#session-decrease::before,
+#reset-button::before {
   height: 0%;
   width: 2px;
 }
@@ -46,7 +50,8 @@
 #break-increase::after,
 #break-decrease::after,
 #session-increase::after,
-#session-decrease::after {
+#session-decrease::after,
+#reset-button::after {
   width: 0%;
   height: 2px;
 }
@@ -55,7 +60,8 @@
 #break-increase:hover,
 #break-decrease:hover,
 #session-increase:hover,
-#session-decrease:hover {
+#session-decrease:hover,
+#reset-button:hover {
   background: transparent;
   box-shadow: none;
   cursor: pointer;
@@ -65,7 +71,8 @@
 #break-increase:hover::before,
 #break-decrease:hover::before,
 #session-increase:hover::before,
-#session-decrease:hover::before {
+#session-decrease:hover::before,
+#reset-button:hover::before {
   height: 100%;
 }
 
@@ -73,7 +80,8 @@
 #break-increase:hover::after,
 #break-decrease:hover::after,
 #session-increase:hover::after,
-#session-decrease:hover::after {
+#session-decrease:hover::after,
+#reset-button:hover::after {
   width: 100%;
 }
 
@@ -81,7 +89,8 @@
 #break-increase span,
 #break-decrease span,
 #session-increase span,
-#session-decrease span {
+#session-decrease span,
+#reset-button span {
   position: relative;
   display: block;
   width: 100%;
@@ -92,7 +101,8 @@
 #break-increase span:hover,
 #break-decrease span:hover,
 #session-increase span:hover,
-#session-decrease span:hover {
+#session-decrease span:hover,
+#reset-button span:hover {
   color: black;
 }
 
@@ -105,7 +115,9 @@
 #session-increase span::before,
 #session-increase span::after,
 #session-decrease span::before,
-#session-decrease span::after {
+#session-decrease span::after,
+#reset-button span::before,
+#reset-button span::after {
   position: absolute;
   content: "";
   left: 0;
@@ -118,7 +130,8 @@
 #break-increase span::before,
 #break-decrease span::before,
 #session-increase span::before,
-#session-decrease span::before {
+#session-decrease span::before,
+#reset-button span::before {
   width: 2px;
   height: 0%;
 }
@@ -127,7 +140,8 @@
 #break-increase span::after,
 #break-decrease span::after,
 #session-increase span::after,
-#session-decrease span::after {
+#session-decrease span::after,
+#reset-button span::after {
   width: 0%;
   height: 2px;
 }
@@ -136,7 +150,8 @@
 #break-decrease span:hover::before,
 #break-increase span:hover::before,
 #session-increase span:hover::before,
-#session-decrease span:hover::before {
+#session-decrease span:hover::before,
+#reset-button span:hover::before {
   height: 100%;
 }
 
@@ -144,7 +159,8 @@
 #break-decrease span:hover::after,
 #break-increase span:hover::after,
 #session-increase span:hover::after,
-#session-decrease span:hover::after {
+#session-decrease span:hover::after,
+#reset-button span:hover::after {
   width: 100%;
 }
 

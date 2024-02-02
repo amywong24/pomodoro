@@ -1,57 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import moment from 'moment';
 import momentDurationFormatSetup from 'moment-duration-format';
-import { useEffect } from "react";
 
-const TimeLeft = ({breakLength, sessionLength }) => {
-    const [timeLeft, setTimeLeft] = useState(sessionLength);
-    const [intervalID, setIntervalID] = useState(null);
-    const [currentSessionType, setCurrentSessionType] = useState('Session');
+momentDurationFormatSetup (moment);
 
-    useEffect(() => {
-        setTimeLeft(sessionLength);
-    }, [sessionLength]);
-
-    const isStart = intervalID != null;
-
-    const handleStartStopClick = () => {
-        if (isStart) {
-            // on start
-            clearInterval(intervalID);
-            setIntervalID(null);
-        }
-        else {
-            // on stop
-            const newIntervalID = setInterval(() => {
-                setTimeLeft(prevTimeLeft => {
-                    const newTimeLeft = prevTimeLeft - 1;
-                    if (newTimeLeft >= 0) {
-                        return prevTimeLeft - 1;
-                    }
-
-                    if(currentSessionType == 'Session') {
-                        setCurrentSessionType('Break');
-                        setTimeLeft(breakLength);
-                    }
-
-                    else if(currentSessionType == 'Break') {
-                        setCurrentSessionType('Session');
-                        setTimeLeft(sessionLength);
-                    }
-                    return prevTimeLeft;
-                });
-            }, 1000);
-            setIntervalID(newIntervalID);
-        }
-    }
-
+function TimeLeft({ timerLabel, handleStartStopClick, startStopButtonLabel, timeLeft }) {
     const formatTimeLeft = moment.duration(timeLeft, 's').format('mm:ss', { trim: false });
     return (
         <>
-        <p>{currentSessionType}</p>
-        <p>{formatTimeLeft}</p>
-        <button id="start-stop-button" onClick={handleStartStopClick}><span>{isStart ? 'Stop' : 'Start'}</span></button></>
-    )
+            <p id="timer-label">{timerLabel}</p>
+            <p>{formatTimeLeft}</p>
+            <button id="start-stop-button" onClick={handleStartStopClick}><span>{startStopButtonLabel}</span></button></>
+    );
 }
 
 export default TimeLeft;
