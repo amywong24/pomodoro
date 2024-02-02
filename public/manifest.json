@@ -1,16 +1,11 @@
 {
   "short_name": "Pomodoro App",
-  "name": "Create React App Sample",
+  "name": "Pomodoro Timer Appl",
   "icons": [
     {
       "src": "books.png",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "64x64",
       "type": "image/x-icon"
-    },
-    {
-      "src": "books.png",
-      "type": "image/png",
-      "sizes": "192x192"
     }
   ],
   "start_url": ".",

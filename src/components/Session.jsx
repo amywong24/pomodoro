@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 const Session = ({ sessionLength, incrementSessionLengthByMinute, decrementSessionLengthByMinute }) => {
-    const sessionLengthinMins = moment.duration(sessionLength, 's').minutes();
+    const sessionLengthinMins = moment.duration(sessionLength, 's').asMinutes();
 
     return (
         <div className="session-container">

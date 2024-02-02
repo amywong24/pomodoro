@@ -17,36 +17,48 @@ function Pomodoro() {
     setTimeLeft(sessionLength);
   }, [sessionLength]);
 
+  useEffect (() => {
+    if (timeLeft === 0) {
+      audioElement.current.play();
+      if (currentSessionType === 'Session') {
+        setCurrentSessionType('Break');
+        setTimeLeft(breakLength);
+      }
+      
+      else if (currentSessionType === 'Break') {
+        setCurrentSessionType('Session');
+        setTimeLeft(sessionLength);
+      }
+    }
+  }, [timeLeft, breakLength, currentSessionType, sessionLength]);
+
   const decrementBreakLengthByMinute = () => {
     const newBreakLength = breakLength - 60;
-
-    if (newBreakLength < 0) {
-      setBreakLength(0);
-    }
-
-    else {
+    if (newBreakLength > 0) {
       setBreakLength(newBreakLength);
     }
   };
 
   const incrementBreakLengthByMinute = () => {
-    setBreakLength(breakLength + 60);
+    const newBreakLength = breakLength +60;
+    if (newBreakLength <= 60*60) {
+      setBreakLength(newBreakLength);
+    }
   };
 
   const decrementSessionLengthByMinute = () => {
     const newSessionLength = sessionLength - 60;
 
-    if (newSessionLength < 0) {
-      setSessionLength(0);
-    }
-
-    else {
+    if (newSessionLength > 0) {
       setSessionLength(newSessionLength);
     }
   };
 
   const incrementSessionLengthByMinute = () => {
-    setSessionLength(sessionLength + 60);
+    const newSessionLength = sessionLength + 60;
+    if (newSessionLength <= 60*60) {
+      setSessionLength(sessionLength+60);
+    }
   };
 
   const isStart = intervalID != null;
@@ -60,24 +72,7 @@ function Pomodoro() {
     else {
       // on stop
       const newIntervalID = setInterval(() => {
-        setTimeLeft(prevTimeLeft => {
-          const newTimeLeft = prevTimeLeft - 1;
-          if (newTimeLeft >= 0) {
-            return prevTimeLeft - 1;
-          }
-          audioElement.current.play();
-
-          if (currentSessionType === 'Session') {
-            setCurrentSessionType('Break');
-            setTimeLeft(breakLength);
-          }
-
-          else if (currentSessionType === 'Break') {
-            setCurrentSessionType('Session');
-            setTimeLeft(sessionLength);
-          }
-          return prevTimeLeft;
-        });
+        setTimeLeft(prevTimeLeft => prevTimeLeft -1 );
       }, 1000);
       setIntervalID(newIntervalID);
     }
