@@ -1,8 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 
-const Break = ({breakLength, decrementBreakLengthByMinute, incrementBreakLengthByMinute}) => {
-    const breakLengthinMins = moment.duration(breakLength, 's').minutes();
+const Break: React.FC<Props> = ({breakLength, decrementBreakLengthByMinute, incrementBreakLengthByMinute}) => {
+    const breakLengthinMins = moment.duration(breakLength, 's').asMinutes();
 
     return (
         <div className="break-container">
@@ -13,5 +13,11 @@ const Break = ({breakLength, decrementBreakLengthByMinute, incrementBreakLengthB
         </div>
     );
 };
+
+type Props = {
+    breakLength: number
+    decrementBreakLengthByMinute: () => void
+    incrementBreakLengthByMinute: () => void
+}
 
 export default Break;

@@ -8,10 +8,10 @@ import './buttons.css';
 function Pomodoro() {
   const [sessionLength, setSessionLength] = useState(60 * 25);
   const [breakLength, setBreakLength] = useState(300);
-  const [intervalID, setIntervalID] = useState(null);
+  const [intervalID, setIntervalID] = useState<NodeJS.Timeout | null>(null);
   const [currentSessionType, setCurrentSessionType] = useState('Session');
   const [timeLeft, setTimeLeft] = useState(sessionLength);
-  const audioElement = useRef(null);
+  const audioElement = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     setTimeLeft(sessionLength);
@@ -19,7 +19,7 @@ function Pomodoro() {
 
   useEffect (() => {
     if (timeLeft === 0) {
-      audioElement.current.play();
+      audioElement?.current?.play();
       if (currentSessionType === 'Session') {
         setCurrentSessionType('Break');
         setTimeLeft(breakLength);
@@ -66,7 +66,9 @@ function Pomodoro() {
   const handleStartStopClick = () => {
     if (isStart) {
       // on start
-      clearInterval(intervalID);
+      if(intervalID) {
+        clearInterval(intervalID);
+      }
       setIntervalID(null);
     }
     else {
@@ -80,8 +82,10 @@ function Pomodoro() {
 
   //resets timer
   const handleResetButtonClick = () => {
-    audioElement.current.load();
-    clearInterval(intervalID);
+    audioElement?.current?.load();
+    if(intervalID) {
+      clearInterval(intervalID);
+    }
     setIntervalID(null);
     setCurrentSessionType('Session');
     setSessionLength(60*25);
@@ -100,12 +104,12 @@ function Pomodoro() {
         handleStartStopClick={handleStartStopClick}
         startStopButtonLabel={isStart ? 'Stop' : 'Start'}
         timeLeft={timeLeft}
+        handleResetButtonClick={handleResetButtonClick}
          />
       <Session
         sessionLength={sessionLength}
         decrementSessionLengthByMinute={decrementSessionLengthByMinute}
         incrementSessionLengthByMinute={incrementSessionLengthByMinute} />
-        <button id="reset-button" onClick={handleResetButtonClick}><span>Reset</span></button>
         <audio id="sound" ref={audioElement}>
           <source src="https://onlineclock.net/audio/options/harp-strumming.mp3" type="audio/mpeg" />
         </audio>

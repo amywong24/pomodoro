@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-const Session = ({ sessionLength, incrementSessionLengthByMinute, decrementSessionLengthByMinute }) => {
+const Session: React.FC<Props> = ({ sessionLength, incrementSessionLengthByMinute, decrementSessionLengthByMinute }) => {
     const sessionLengthinMins = moment.duration(sessionLength, 's').asMinutes();
 
     return (
@@ -14,5 +14,11 @@ const Session = ({ sessionLength, incrementSessionLengthByMinute, decrementSessi
     );
 
 };
+
+type Props = {
+    sessionLength: number
+    incrementSessionLengthByMinute: () => void
+    decrementSessionLengthByMinute: () => void
+}
 
 export default Session;
