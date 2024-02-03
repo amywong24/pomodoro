@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './buttons.css'
+//import './buttons.css'
 
-const StopStartButtons = () =>{
+const StopStartButtons = () => {
     return (
         <div className='section'>
             <div className="button-container">

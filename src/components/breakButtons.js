@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import './buttons.css'
+//import './buttons.css'
 
 const BreakButtons = () => {
     const [breakLength, setBreakLength] = useState(300);
@@ -19,7 +19,7 @@ const BreakButtons = () => {
                 {Math.floor(breakLength / 60)}:{String(breakLength % 60).padStart(2, '0')}
                 </div>
             </div>
-            <dive className='section'>
+            <div className='section'>
                 <button id="break-decrease" onClick={decreBreak}>
                     <span>
                         -
@@ -30,7 +30,7 @@ const BreakButtons = () => {
                         +
                     </span>
                 </button>
-            </dive>
+            </div>
         </div>
     )
 };
