@@ -402,8 +402,8 @@ h6, p {
     display: inline-flex ;
 }
 .gmCwLG {
-    background-color: var(--color-background-button-primary-default);
-    color: var(--color-text-button-primary);
+    background: #f08080;
+    color: black;
 }
 .gPDjGr {
     display: flex;

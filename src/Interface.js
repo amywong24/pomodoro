@@ -27,10 +27,6 @@ function Interface() {
 
         <div className="left-div-container">
         <div className="left-div">
-            <div className="featured-content">Featured Content</div>
-                <div className="live-streams">Live Streams</div>
-                <div className="stream-information">Stream Information</div>
-                <div className="video-player">Video Player</div>
             
             
             <div className="pomodoro">
@@ -56,7 +52,7 @@ function Interface() {
             </div>
 
             <div className="body-container">
-            <div className="" style={{height:'100%',backgroundColor:'lightgray'}}>
+            <div className="" style={{height:'100%'}}>
                 text
                 </div>
                 </div>
