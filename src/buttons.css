@@ -12,8 +12,8 @@
   line-height: 42px;
   padding: 0;
   border: none;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   position: relative;
+  font-family: 'Dekko', cursive;
 }
 
 #start-stop-button::before,
@@ -168,4 +168,8 @@
 #break-decrease, #session-increase, #session-decrease {
   width: 50px;
   margin-right: 20px;
+}
+
+#start-stop-button, #reset-button {
+  margin-right: 15px;
 }

@@ -1,3 +1,21 @@
 .pomodoro {
+  display: flex;
+  justify-content: space-evenly;
   text-align: center;
+  margin-top: 30px;
+}
+
+.session-container, .break-container, .timeLeft-container {
+  margin-right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Dekko', cursive;
+}
+
+.timeLeft-container {
+  border: 5px solid black;
+  border-radius: 50%;
+  border-spacing: 50px;
+  width: 350px;
+  height: 350px;
 }
