@@ -2,20 +2,62 @@
   display: flex;
   justify-content: space-evenly;
   text-align: center;
-  margin-top: 30px;
+  width: 100vw;
+  height: 100vh;
 }
 
-.session-container, .break-container, .timeLeft-container {
+.session-container,
+.break-container,
+.timeLeft-container {
   margin-right: 10px;
   font-size: 30px;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
 }
 
+#timer-time {
+  font-size: 50px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
 .timeLeft-container {
-  border: 5px solid black;
-  border-radius: 50%;
-  border-spacing: 50px;
-  width: 350px;
+  margin-top: 10px;
+  width: 50vw;
+}
+
+.timeLeft-container>svg {
+  width: 500px;
   height: 350px;
+}
+
+.timeLeft-container>svg>circle {
+  fill: none;
+  stroke-opacity: 0.3;
+  stroke: black;
+  stroke-width: 10;
+  transform-origin: center center;
+  transform: rotate(-90deg);
+}
+
+.timeLeft-container>svg>circle+circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-linecap: round;
+  stroke-opacity: 1;
+}
+
+.timeLeft-container.animatable>svg>circle+circle {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.timeLeft-container>svg>text {
+  font-size: 2rem;
+}
+
+.timeLeft-container>svg>text+text {
+  font-size: 1rem;
 }
