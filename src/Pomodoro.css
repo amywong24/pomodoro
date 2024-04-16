@@ -1,187 +1,63 @@
 .pomodoro {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.session-container,
+.break-container,
+.timeLeft-container {
+  margin-right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#timer-time {
+  font-size: 50px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
 }
 
-.button-container {
-  display: flex;
+.timeLeft-container {
+  margin-top: 10px;
+  width: 50vw;
 }
 
-#start-button,
-#stop-button,
-#break-increase,
-#break-decrease,
-#session-decrease,
-#session-increase {
-  width: 120px;
-  height: 50px;
-  font-size: 35px;
-  background: rgb(96, 133, 240);
-  background: linear-gradient(90deg, rgba(96, 133, 240, 1) 0%, rgba(120, 116, 242, 1) 35%, rgba(59, 203, 174, 1) 100%);
-  line-height: 42px;
-  padding: 0;
-  border: none;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  position: relative;
+.timeLeft-container>svg {
+  width: 500px;
+  height: 350px;
 }
 
-#start-button::before,
-#start-button::after,
-#stop-button::before,
-#stop-button::after,
-#break-increase::before,
-#break-increase::after,
-#break-decrease::before,
-#break-decrease::after,
-#session-increase::before,
-#session-increase::after,
-#session-decrease::before,
-#session-decrease::after {
-  position: absolute;
-  content: "";
-  right: 0;
-  top: 0;
-  background: #7874f2;
-  transition: all 0.5s ease;
+.timeLeft-container>svg>circle {
+  fill: none;
+  stroke-opacity: 0.3;
+  stroke: black;
+  stroke-width: 10;
+  transform-origin: center center;
+  transform: rotate(-90deg);
 }
 
-#start-button::before,
-#stop-button::before,
-#break-increase::before,
-#break-decrease::before,
-#session-increase::before,
-#session-decrease::before {
-  height: 0%;
-  width: 2px;
+.timeLeft-container>svg>circle+circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-linecap: round;
+  stroke-opacity: 1;
 }
 
-#start-button::after,
-#stop-button::after,
-#break-increase::after,
-#break-decrease::after,
-#session-increase::after,
-#session-decrease::after {
-  width: 0%;
-  height: 2px;
+.timeLeft-container.animatable>svg>circle+circle {
+  transition: stroke-dashoffset 0.3s ease;
 }
 
-#start-button:hover,
-#stop-button:hover,
-#break-increase:hover,
-#break-decrease:hover,
-#session-increase:hover,
-#session-decrease:hover {
-  background: transparent;
-  box-shadow: none;
-  cursor: pointer;
+.timeLeft-container>svg>text {
+  font-size: 2rem;
 }
 
-#start-button:hover::before,
-#stop-button:hover::before,
-#break-increase:hover::before,
-#break-decrease:hover::before,
-#session-increase:hover::before,
-#session-decrease:hover::before {
-  height: 100%;
-}
-
-#start-button:hover::after,
-#stop-button:hover::after,
-#break-increase:hover::after,
-#break-decrease:hover::after,
-#session-increase:hover::after,
-#session-decrease:hover::after {
-  width: 100%;
-}
-
-#start-button span,
-#stop-button span,
-#break-increase span,
-#break-decrease span,
-#session-increase span,
-#session-decrease span {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-#start-button span:hover,
-#stop-button span:hover,
-#break-increase span:hover,
-#break-decrease span:hover,
-#session-increase span:hover,
-#session-decrease span:hover {
-  color: #7874f2;
-}
-
-#start-button span::before,
-#start-button span::after,
-#stop-button span::before,
-#stop-button span::after,
-#break-decrease span::before,
-#break-decrease span::after,
-#break-increase span::before,
-#break-increase span::after,
-#session-increase span::before,
-#session-increase span::after,
-#session-decrease span::before,
-#session-decrease span::after {
-  position: absolute;
-  content: "";
-  left: 0;
-  bottom: 0;
-  background: #7874f2;
-  transition: all 0.5s ease;
-}
-
-#start-button span::before,
-#stop-button span::before,
-#break-increase span::before,
-#break-decrease span::before,
-#session-increase span::before,
-#session-decrease span::before {
-  width: 2px;
-  height: 0%;
-}
-
-#start-button span::after,
-#stop-button span::after,
-#break-increase span::after,
-#break-decrease span::after,
-#session-increase span::after,
-#session-decrease span::after {
-  width: 0%;
-  height: 2px;
-}
-
-#start-button span:hover::before,
-#stop-button span:hover::before,
-#break-decrease span:hover::before,
-#break-increase span:hover::before,
-#session-increase span:hover::before,
-#session-decrease span:hover::before {
-  height: 100%;
-}
-
-#start-button span:hover::after,
-#stop-button span:hover::after,
-#break-decrease span:hover::after,
-#break-increase span:hover::after,
-#session-increase span:hover::after,
-#session-decrease span:hover::after {
-  width: 100%;
-}
-
-.start-button-container,
-.stop-button-container,
-.break-container,
-.session-container {
-  position: relative;
-  margin-right: 20px;
-}
-
-#break-increase,
-#break-decrease, #session-increase, #session-decrease {
-  width: 50px;
-  margin-right: 20px;
+.timeLeft-container>svg>text+text {
+  font-size: 1rem;
 }

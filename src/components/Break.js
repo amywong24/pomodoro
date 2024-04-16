@@ -1,8 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 
-const Break = ({breakLength, decrementBreakLengthByMinute, incrementBreakLengthByMinute}) => {
-    const breakLengthinMins = moment.duration(breakLength, 's').minutes();
+const Break = ({ breakLength, decrementBreakLengthByMinute, incrementBreakLengthByMinute }) => {
+    const breakLengthinMins = moment.duration(breakLength, 's').asMinutes();
 
     return (
         <div className="break-container">

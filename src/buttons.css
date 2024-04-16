@@ -1,0 +1,175 @@
+#start-stop-button,
+#break-increase,
+#break-decrease,
+#session-decrease,
+#session-increase,
+#reset-button {
+  width: 120px;
+  height: 50px;
+  font-size: 35px;
+  background: #f08080;
+  color: black;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#start-stop-button::before,
+#start-stop-button::after,
+#break-increase::before,
+#break-increase::after,
+#break-decrease::before,
+#break-decrease::after,
+#session-increase::before,
+#session-increase::after,
+#session-decrease::before,
+#session-decrease::after,
+#reset-button::before,
+#reset-button::after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: black;
+  transition: all 0.5s ease;
+}
+
+#start-stop-button::before,
+#break-increase::before,
+#break-decrease::before,
+#session-increase::before,
+#session-decrease::before,
+#reset-button::before {
+  height: 0%;
+  width: 2px;
+}
+
+#start-stop-button::after,
+#break-increase::after,
+#break-decrease::after,
+#session-increase::after,
+#session-decrease::after,
+#reset-button::after {
+  width: 0%;
+  height: 2px;
+}
+
+#start-stop-button:hover,
+#break-increase:hover,
+#break-decrease:hover,
+#session-increase:hover,
+#session-decrease:hover,
+#reset-button:hover {
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+#start-stop-button:hover::before,
+#break-increase:hover::before,
+#break-decrease:hover::before,
+#session-increase:hover::before,
+#session-decrease:hover::before,
+#reset-button:hover::before {
+  height: 100%;
+}
+
+#start-stop-button:hover::after,
+#break-increase:hover::after,
+#break-decrease:hover::after,
+#session-increase:hover::after,
+#session-decrease:hover::after,
+#reset-button:hover::after {
+  width: 100%;
+}
+
+#start-stop-button span,
+#break-increase span,
+#break-decrease span,
+#session-increase span,
+#session-decrease span,
+#reset-button span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#start-stop-button span:hover,
+#break-increase span:hover,
+#break-decrease span:hover,
+#session-increase span:hover,
+#session-decrease span:hover,
+#reset-button span:hover {
+  color: black;
+}
+
+#start-stop-button span::before,
+#start-stop-button span::after,
+#break-decrease span::before,
+#break-decrease span::after,
+#break-increase span::before,
+#break-increase span::after,
+#session-increase span::before,
+#session-increase span::after,
+#session-decrease span::before,
+#session-decrease span::after,
+#reset-button span::before,
+#reset-button span::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: black;
+  transition: all 0.5s ease;
+}
+
+#start-stop-button span::before,
+#break-increase span::before,
+#break-decrease span::before,
+#session-increase span::before,
+#session-decrease span::before,
+#reset-button span::before {
+  width: 2px;
+  height: 0%;
+}
+
+#start-stop-button span::after,
+#break-increase span::after,
+#break-decrease span::after,
+#session-increase span::after,
+#session-decrease span::after,
+#reset-button span::after {
+  width: 0%;
+  height: 2px;
+}
+
+#start-stop-button span:hover::before,
+#break-decrease span:hover::before,
+#break-increase span:hover::before,
+#session-increase span:hover::before,
+#session-decrease span:hover::before,
+#reset-button span:hover::before {
+  height: 100%;
+}
+
+#start-stop-button span:hover::after,
+#break-decrease span:hover::after,
+#break-increase span:hover::after,
+#session-increase span:hover::after,
+#session-decrease span:hover::after,
+#reset-button span:hover::after {
+  width: 100%;
+}
+
+#break-increase,
+#break-decrease, #session-increase, #session-decrease {
+  width: 50px;
+  margin-right: 20px;
+}
+
+#start-stop-button, #reset-button {
+  margin-right: 15px;
+}
