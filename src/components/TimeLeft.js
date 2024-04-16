@@ -2,7 +2,6 @@ import React from "react";
 import moment from 'moment';
 import momentDurationFormatSetup from 'moment-duration-format';
 
-//@ts-ignore
 momentDurationFormatSetup(moment);
 
 const TimeLeft = ({ timerLabel, handleStartStopClick, startStopButtonLabel, timeLeft, handleResetButtonClick }) => {
