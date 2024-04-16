@@ -8,10 +8,10 @@ import './buttons.css';
 function Pomodoro() {
   const [sessionLength, setSessionLength] = useState(60 * 25);
   const [breakLength, setBreakLength] = useState(300);
-  const [intervalID, setIntervalID] = useState<NodeJS.Timeout | null>(null);
+  const [intervalID, setIntervalID] = useState(null);
   const [currentSessionType, setCurrentSessionType] = useState('Session');
   const [timeLeft, setTimeLeft] = useState(sessionLength);
-  const audioElement = useRef<HTMLAudioElement>(null);
+  const audioElement = useRef(null);
 
   useEffect(() => {
     setTimeLeft(sessionLength);
@@ -19,13 +19,11 @@ function Pomodoro() {
 
   useEffect (() => {
     if (timeLeft === 0) {
-      audioElement?.current?.play();
+      audioElement.current.play();
       if (currentSessionType === 'Session') {
         setCurrentSessionType('Break');
         setTimeLeft(breakLength);
-      }
-      
-      else if (currentSessionType === 'Break') {
+      } else if (currentSessionType === 'Break') {
         setCurrentSessionType('Session');
         setTimeLeft(sessionLength);
       }
@@ -40,7 +38,7 @@ function Pomodoro() {
   };
 
   const incrementBreakLengthByMinute = () => {
-    const newBreakLength = breakLength +60;
+    const newBreakLength = breakLength + 60;
     if (newBreakLength <= 60*60) {
       setBreakLength(newBreakLength);
     }
@@ -57,40 +55,39 @@ function Pomodoro() {
   const incrementSessionLengthByMinute = () => {
     const newSessionLength = sessionLength + 60;
     if (newSessionLength <= 60*60) {
-      setSessionLength(sessionLength+60);
+      setSessionLength(sessionLength + 60);
     }
   };
 
-  const isStart = intervalID != null;
+  const isStart = intervalID !== null;
 
   const handleStartStopClick = () => {
     if (isStart) {
       // on start
-      if(intervalID) {
+      if (intervalID) {
         clearInterval(intervalID);
       }
       setIntervalID(null);
-    }
-    else {
+    } else {
       // on stop
       const newIntervalID = setInterval(() => {
-        setTimeLeft(prevTimeLeft => prevTimeLeft -1 );
+        setTimeLeft(prevTimeLeft => prevTimeLeft - 1);
       }, 1000);
       setIntervalID(newIntervalID);
     }
   }
 
-  //resets timer
+  // resets timer
   const handleResetButtonClick = () => {
-    audioElement?.current?.load();
-    if(intervalID) {
+    audioElement.current.load();
+    if (intervalID) {
       clearInterval(intervalID);
     }
     setIntervalID(null);
     setCurrentSessionType('Session');
-    setSessionLength(60*25);
-    setBreakLength(60*5);
-    setTimeLeft(60*25); // resets the timer to 25 minutes
+    setSessionLength(60 * 25);
+    setBreakLength(60 * 5);
+    setTimeLeft(60 * 25); // resets the timer to 25 minutes
   }
 
   return (
@@ -105,16 +102,17 @@ function Pomodoro() {
         startStopButtonLabel={isStart ? 'Stop' : 'Start'}
         timeLeft={timeLeft}
         handleResetButtonClick={handleResetButtonClick}
-         />
+      />
       <Session
         sessionLength={sessionLength}
         decrementSessionLengthByMinute={decrementSessionLengthByMinute}
         incrementSessionLengthByMinute={incrementSessionLengthByMinute} />
-        <audio id="sound" ref={audioElement}>
-          <source src="https://onlineclock.net/audio/options/harp-strumming.mp3" type="audio/mpeg" />
-        </audio>
+      <audio id="sound" ref={audioElement}>
+        <source src="https://onlineclock.net/audio/options/harp-strumming.mp3" type="audio/mpeg" />
+      </audio>
     </div>
   );
 }
 
 export default Pomodoro;
+
